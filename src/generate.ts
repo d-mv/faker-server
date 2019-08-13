@@ -17,18 +17,21 @@ export const generate = async (qty?: number) => {
     );
     const person: UIFace = response.data[0];
 
-    let obj = []
+    let obj = [];
     for (let i = 0; i < (qty || 1); i++) {
+      const toId = Math.random() >= 0.5 ? 1 : faker.random.number();
       const newObject = {
         id: faker.random.number(),
         isSeen: true,
         createdAt: faker.date.past(1, new Date()),
         from: {
+          // if to: is not user, then user is the sender
+          id: toId === 1 ? faker.random.number() : 1,
           avatar: person.photo,
           title: person.name,
           subTitle: person.position
         },
-        to: faker.random.number(),
+        to: toId,
         text: faker.lorem.lines(1)
       };
       obj.push(newObject);
