@@ -13,7 +13,7 @@ interface UIFace {
 export const generate = async (qty?: number) => {
   try {
     const response = await axios.get(
-      `https://uifaces.co/api?limit=${qty || 1}&emotion[]=happiness`
+      `https://uifaces.co/api?limit=${2}&emotion[]=happiness`
     );
     const person: UIFace[] = response.data;
 
@@ -27,9 +27,9 @@ export const generate = async (qty?: number) => {
         from: {
           // if to: is not user, then user is the sender
           id: toId === 1 ? faker.random.number() : 1,
-          avatar: person[toId === 1 ? i : 0].photo,
-          title: person[toId === 1 ? i : 0].name,
-          subTitle: person[toId === 1 ? i : 0].position
+          avatar: person[toId === 1 ? 1 : 0].photo,
+          title: person[toId === 1 ? 1 : 0].name,
+          subTitle: person[toId === 1 ? 1 : 0].position
         },
         to: toId,
         text: faker.lorem.lines(1)
