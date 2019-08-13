@@ -15,7 +15,7 @@ export const generate = async (qty?: number) => {
     const response = await axios.get(
       `https://uifaces.co/api?limit=${qty || 1}&emotion[]=happiness`
     );
-    const person: UIFace = response.data[0];
+    const person: UIFace[] = response.data;
 
     let obj = [];
     for (let i = 0; i < (qty || 1); i++) {
@@ -27,9 +27,9 @@ export const generate = async (qty?: number) => {
         from: {
           // if to: is not user, then user is the sender
           id: toId === 1 ? faker.random.number() : 1,
-          avatar: person.photo,
-          title: person.name,
-          subTitle: person.position
+          avatar: person[toId === 1 ? 0 : i].photo,
+          title: person[toId === 1 ? 0 : i].name,
+          subTitle: person[toId === 1 ? 0 : i].position
         },
         to: toId,
         text: faker.lorem.lines(1)
