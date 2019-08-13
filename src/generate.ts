@@ -27,9 +27,9 @@ export const generate = async (qty?: number) => {
         from: {
           // if to: is not user, then user is the sender
           id: toId === 1 ? faker.random.number() : 1,
-          avatar: person[toId === 1 ? 0 : i].photo,
-          title: person[toId === 1 ? 0 : i].name,
-          subTitle: person[toId === 1 ? 0 : i].position
+          avatar: person[toId === 1 ? i : 0].photo,
+          title: person[toId === 1 ? i : 0].name,
+          subTitle: person[toId === 1 ? i : 0].position
         },
         to: toId,
         text: faker.lorem.lines(1)
