@@ -1,21 +1,20 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
     "outDir": "build",
     "sourceMap": true,
     "experimentalDecorators": true,
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
+    "strict": false,
     "lib": [
       "es7"
     ],
-    "moduleResolution": "node",
-    "noEmit": true,
-    "strict": true,
-    "target": "esnext"
   },
+  "include": [
+    "./src/*"
+  ],
   "exclude": [
     "src/tests",
     "node_modules",
