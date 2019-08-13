@@ -10,6 +10,7 @@
     "build": "rm -rf dist && tsc -p . --outDir ./dist"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "debug": "^4.1.1",
     "express": "^4.17.1",

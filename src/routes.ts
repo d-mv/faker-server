@@ -3,9 +3,10 @@ import { generate } from "./generate";
 const app: any = express;
 const router = new app.Router();
 
-router.get("/", async (req: express.Request, res: express.Response) => {
+router.get("/conversation/:id", async (req: express.Request, res: express.Response) => {
+  console.log()
   try {
-    const data = generate();
+    const data = await generate(req.params.id);
     res.status(200).send(data);
   } catch (e) {
     console.log(e);
