@@ -1,7 +1,12 @@
 import faker from 'faker';
 import axios from 'axios';
+import dotenv from 'dotenv';
 
-axios.defaults.headers.common['X-API-KEY'] = 'e431eb98e58bdbe6a3df2a16b44070';
+dotenv.config();
+
+const APIKEY = process.env.UIFACES_API_KEY;
+
+axios.defaults.headers.common['X-API-KEY'] = APIKEY;
 
 interface UIFace {
   name: string;
